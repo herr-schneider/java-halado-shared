@@ -18,7 +18,8 @@ public class GameRepositoryTest {
 
     @Test
     void testReadFromFile() {
-        games = gameRepository.readFromFile();
+        gameRepository.readFromFile("c:/training/java-halado-shared/game/src/main/resources/results.csv");
+        games =gameRepository.getGames();
 
         Assertions.assertEquals("Wales", games.get(1).getFirstCountry());
         Assertions.assertEquals("Russia", games.get(3).getSecondCountry());
@@ -30,7 +31,7 @@ public class GameRepositoryTest {
     void testAddGame() {
         Assertions.assertEquals(0, gameRepository.getGames().size());
 
-        gameRepository.addGame(new Game("Magyarország", "Portugália", 3, 1));
+        gameRepository.addGame(new Game("Magyarország", "Portugália", "3", "1"));
 
         Assertions.assertEquals(1, gameRepository.getGames().size());
         Assertions.assertEquals("Magyarország", gameRepository.getGames().get(0).getFirstCountry());
