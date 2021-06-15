@@ -23,8 +23,8 @@ public class GameRepositoryTest {
 
         Assertions.assertEquals("Wales", games.get(1).getFirstCountry());
         Assertions.assertEquals("Russia", games.get(3).getSecondCountry());
-        Assertions.assertEquals(0, games.get(7).getFirstCountryScore());
-        Assertions.assertEquals(1, games.get(12).getSecondCountryScore());
+        Assertions.assertEquals("0", games.get(7).getFirstCountryScore());
+        Assertions.assertEquals("1", games.get(12).getSecondCountryScore());
     }
 
     @Test
@@ -35,6 +35,6 @@ public class GameRepositoryTest {
 
         Assertions.assertEquals(1, gameRepository.getGames().size());
         Assertions.assertEquals("Magyarország", gameRepository.getGames().get(0).getFirstCountry());
-        Assertions.assertEquals(3, gameRepository.getGames().get(0).getFirstCountryScore());
+        Assertions.assertEquals("3", gameRepository.getGames().get(0).getFirstCountryScore());
     }
 }
