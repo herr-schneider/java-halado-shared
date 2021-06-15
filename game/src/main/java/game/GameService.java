@@ -29,15 +29,20 @@ public class GameService {
         return result;
                 }
 
-public int getGoals(String country){
-        int goals=0;
-        for(Game g:gameRepository.getGames()){
-        if(g.getFirstCountry().equals(country)){
-        goals+=g.getFirstCountryScore();
-        }else if(g.getSecondCountry().equals(country)){
-        goals+=g.getSecondCountryScore();
+public int getGoals(String country) {
+        int goals = 0;
+        for (Game g : gameRepository.getGames()) {
+        if (g.getFirstCountry().equals(country)) {
+        goals += g.getFirstCountryScore();
+        } else if (g.getSecondCountry().equals(country)) {
+        goals += g.getSecondCountryScore();
         }
         }
         return goals;
         }
+
+public Game getGameWithMostGoalDifference() {
+        return gameRepository.getGames().stream()
+        .max(Comparator.comparing(game -> Math.abs(game.getFirstCountryScore() - game.getSecondCountryScore())))
+        .get();
         }
