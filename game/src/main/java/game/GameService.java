@@ -15,17 +15,29 @@ public class GameService {
         List<Game> games = gameRepository.getGames();
         for (Game game : games) {
             if (Integer.parseInt(game.getFirstCountryScore()) > Integer.parseInt(game.getSecondCountryScore()) && Integer.parseInt(game.getFirstCountryScore()) > maxGoal) {
-                    result = game.getFirstCountry();
-                    maxGoal = Integer.parseInt(game.getFirstCountryScore());
-                }
+                result = game.getFirstCountry();
+                maxGoal = Integer.parseInt(game.getFirstCountryScore());
+            }
 
             if (Integer.parseInt(game.getSecondCountryScore()) > maxGoal) {
-                        result = game.getSecondCountry();
-                        maxGoal = Integer.parseInt(game.getSecondCountryScore());
-                    }
-                }
+                result = game.getSecondCountry();
+                maxGoal = Integer.parseInt(game.getSecondCountryScore());
             }
         }
-        return result;
     }
 }
+        return result;
+                }
+
+public int getGoals(String country){
+        int goals=0;
+        for(Game g:gameRepository.getGames()){
+        if(g.getFirstCountry().equals(country)){
+        goals+=g.getFirstCountryScore();
+        }else if(g.getSecondCountry().equals(country)){
+        goals+=g.getSecondCountryScore();
+        }
+        }
+        return goals;
+        }
+        }
