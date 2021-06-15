@@ -5,7 +5,11 @@ import java.util.List;
 public class GameService {
     private GameRepository gameRepository;
 
-    public String getCountryWithMostGoal() {
+    public GameService(GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
+    }
+
+    public String getCountryWithMostGoals() {
         String result = "Nincs ilyen!";
         int maxGoal = 0;
         List<Game> games = gameRepository.getGames();
