@@ -1,5 +1,6 @@
 package game;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,11 @@ public class GameService {
     public GameService(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
     }
-
+    public Game getGameWithMostGoalDifference() {
+        return gameRepository.getGames().stream()
+                .max(Comparator.comparing(game -> Math.abs((Integer.parseInt(game.getFirstCountryScore())) - (Integer.parseInt(game.getSecondCountryScore())))))
+                .get();
+    }
     public String getCountryWithMostGoals() {
             Map<String, Integer> result = new HashMap<>();
             int actual;
