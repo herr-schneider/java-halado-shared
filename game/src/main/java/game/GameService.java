@@ -18,6 +18,7 @@ public class GameService {
                     result = game.getFirstCountry();
                     maxGoal = Integer.parseInt(game.getFirstCountryScore());
                 }
+
             if (Integer.parseInt(game.getSecondCountryScore()) > maxGoal) {
                         result = game.getSecondCountry();
                         maxGoal = Integer.parseInt(game.getSecondCountryScore());
