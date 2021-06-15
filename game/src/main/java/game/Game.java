@@ -1,3 +1,5 @@
+package game;
+
 public class Game {
     private String firstCountry;
     private String secondCountry;
