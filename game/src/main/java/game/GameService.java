@@ -17,6 +17,7 @@ public class GameService {
                 .get();
     }
     public String getCountryWithMostGoals() {
+        System.out.println("Elindult");
             Map<String, Integer> result = new HashMap<>();
             int actual;
             int maxBattle = 0;
@@ -24,22 +25,26 @@ public class GameService {
             for (Game game : gameRepository.getGames()) {
                 if (!result.containsKey(game.getFirstCountry())) {
                     result.put(game.getFirstCountry(), Integer.parseInt(game.getFirstCountryScore()));
+                    System.out.println("First_init");
                 } else {
                     actual = result.get(game.getFirstCountry());
                     result.replace(game.getFirstCountry(), actual + Integer.parseInt(game.getFirstCountryScore()));
                     if (actual > maxBattle) {
                         maxBattle = actual + actual + Integer.parseInt(game.getFirstCountryScore());
                         country = game.getFirstCountry();
+                        System.out.println("First_inc");
                     }
                 }
                 if (!result.containsKey(game.getSecondCountry())) {
                     result.put(game.getSecondCountry(), Integer.parseInt(game.getSecondCountryScore()));
+                    System.out.println("Second_init");
                 } else {
                     actual = result.get(game.getSecondCountry());
                     result.replace(game.getSecondCountry(), actual + Integer.parseInt(game.getSecondCountryScore()));
                     if (actual > maxBattle) {
                         maxBattle = actual + actual + Integer.parseInt(game.getSecondCountryScore());
                         country = game.getSecondCountry();
+                        System.out.println("Second_inc");
                     }
                 }
             }
