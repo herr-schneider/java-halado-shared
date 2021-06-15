@@ -17,7 +17,14 @@ public class GameServiceTest {
 
     @BeforeEach
     void setUp() {
-        gameService = new GameService(new GameRepository());
+        GameRepository gameRepository = new GameRepository();
+        gameRepository.addGame(new Game("Hungary", "Portugal", "1", "0"));
+        gameRepository.addGame(new Game("Denmark", "Finnland", "0", "1"));
+        gameRepository.addGame(new Game("Wales", "Switzerland", "1", "1"));
+        gameRepository.addGame(new Game("Turkey", "Wales", "1", "1"));
+        gameRepository.addGame(new Game("Turkey", "Italy", "0", "3"));
+        gameRepository.addGame(new Game("Spain", "Sweden", "0", "0"));
+        gameService = new GameService(gameRepository);
     }
 
 
