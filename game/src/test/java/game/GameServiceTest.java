@@ -17,12 +17,12 @@ public class GameServiceTest {
 
     @Disabled
     void testGetGameWithMostGoalDifference() {
-       // Game expected = gameService.getGameWithMostGoalDifference();
+        Game expected = gameService.getGameWithMostGoalDifference();
 
-//        Assertions.assertEquals("Turkey", expected.getFirstCountry());
-//        Assertions.assertEquals("Italy", expected.getSecondCountry());
-//        Assertions.assertEquals(0, expected.getFirstCountryScore());
-//        Assertions.assertEquals(3, expected.getSecondCountryScore());
+        Assertions.assertEquals("Turkey", expected.getFirstCountry());
+        Assertions.assertEquals("Italy", expected.getSecondCountry());
+        Assertions.assertEquals(0, expected.getFirstCountryScore());
+        Assertions.assertEquals(3, expected.getSecondCountryScore());
     }
 
     @ParameterizedTest
