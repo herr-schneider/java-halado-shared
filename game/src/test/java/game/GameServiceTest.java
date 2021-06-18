@@ -34,8 +34,8 @@ public class GameServiceTest {
 
         Assertions.assertEquals("Turkey", expected.getFirstCountry());
         Assertions.assertEquals("Italy", expected.getSecondCountry());
-        Assertions.assertEquals(0, Integer.parseInt(expected.getFirstCountryScore()));
-        Assertions.assertEquals(3, Integer.parseInt(expected.getSecondCountryScore()));
+        Assertions.assertEquals(0, expected.getFirstCountryScore());
+        Assertions.assertEquals(3, expected.getSecondCountryScore());
     }
 
     @ParameterizedTest

@@ -3,19 +3,27 @@ package game;
 public class Game {
     private String firstCountry;
     private String secondCountry;
-    private String firstCountryScore;
-    private String secondCountryScore;
+    private int firstCountryScore;
+    private int secondCountryScore;
 
     public Game(String firstCountry, String secondCountry, String firstCountryScore, String secondCountryScore) {
         this.firstCountry = firstCountry;
         this.secondCountry = secondCountry;
-        this.firstCountryScore = firstCountryScore;
-        this.secondCountryScore = secondCountryScore;
+        try {
+            this.firstCountryScore = Integer.parseInt(firstCountryScore);
+            this.secondCountryScore = Integer.parseInt(secondCountryScore);
+        } catch (NumberFormatException nfe){
+            System.out.println(nfe.getMessage());
+            this.firstCountryScore = 0;
+            this.secondCountryScore = 0;
+        }
+
     }
 
-    public String whoIsTheWinner(){
+    public String whoIsTheWinner() {
         return Integer.parseInt(firstCountry) > Integer.parseInt(firstCountry) ? firstCountry : secondCountry;
     }
+
     public String getFirstCountry() {
         return firstCountry;
     }
@@ -32,21 +40,12 @@ public class Game {
         this.secondCountry = secondCountry;
     }
 
-    public String getFirstCountryScore() {
+    public int getFirstCountryScore() {
         return firstCountryScore;
     }
 
-    public void setFirstCountryScore(String firstCountryScore) {
-        this.firstCountryScore = firstCountryScore;
-    }
 
-    public String getSecondCountryScore() {
+    public int getSecondCountryScore() {
         return secondCountryScore;
     }
-
-    public void setSecondCountryScore(String secondCountryScore) {
-        this.secondCountryScore = secondCountryScore;
-    }
-
-
 }
