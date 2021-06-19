@@ -55,6 +55,17 @@ public class GameServiceTest {
 
     @Test
     void testGetCountryWithMostGoals() {
-        Assertions.assertEquals("Wales", gameService.getCountryWithMostGoals());
+        Assertions.assertEquals("Italy", gameService.getCountryWithMostGoals());
+    }
+
+    @Test
+    void testGetCountryWithMostGoals2() {
+        Assertions.assertEquals("Italy", gameService.getCountryWithMostGoals2());
+    }
+
+
+    @Test
+    void testMostGoalsCountry(){
+        Assertions.assertEquals("Italy", gameService.mostGoalsCountry());
     }
 }
